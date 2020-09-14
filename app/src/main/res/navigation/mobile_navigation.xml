@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.bitcricket.ui.home.TeamsFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_team" >
+        <action
+            android:id="@+id/action_navigation_home_to_teamProfile"
+            app:destination="@id/teamProfile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.bitcricket.ui.dashboard.MatchesFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_matches" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_matchSummary"
+            app:destination="@id/matchSummary" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.bitcricket.ui.notifications.CountriesFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_countries" />
+    <fragment
+        android:id="@+id/teamProfile"
+        android:name="com.example.bitcricket.ui.TeamProfile"
+        android:label="team_profile_fragment"
+        tools:layout="@layout/team_profile_fragment" >
+        <argument
+            android:name="team_data"
+            app:argType="com.example.bitcricket.model.Teams" />
+        <action
+            android:id="@+id/action_teamProfile_to_playersList"
+            app:destination="@id/playersList" />
+    </fragment>
+    <fragment
+        android:id="@+id/playersList"
+        android:name="com.example.bitcricket.ui.PlayersList"
+        android:label="players_list_fragment"
+        tools:layout="@layout/players_list_fragment" >
+        <action
+            android:id="@+id/action_playersList_to_playerDetails"
+            app:destination="@id/playerDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerDetails"
+        android:name="com.example.bitcricket.ui.PlayerDetails"
+        android:label="player_details_fragment"
+        tools:layout="@layout/player_details_fragment" >
+        <argument
+            android:name="player_data"
+            app:argType="com.example.bitcricket.model.Players" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchSummary"
+        android:name="com.example.bitcricket.ui.MatchSummary"
+        android:label="match_summary_fragment"
+        tools:layout="@layout/match_summary_fragment" >
+        <argument
+            android:name="match_data"
+            app:argType="com.example.bitcricket.model.Matches" />
+    </fragment>
+</navigation>
